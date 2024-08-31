@@ -1,0 +1,10 @@
+List of Fonts used in template 
+
+
+
+Play			http://www.google.com/fonts/specimen/Play
+Ubuntu			http://www.google.com/fonts/specimen/Ubuntu
+
+
+
+
