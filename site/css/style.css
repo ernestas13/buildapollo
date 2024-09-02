@@ -44,7 +44,7 @@ h1.navbar-brand_ {
   float: left;
   height: auto;
   position: absolute;
-  top: 41px;
+  top: 30px;
   z-index: 10;
 }
 h1.navbar-brand_ a {
@@ -108,7 +108,7 @@ h5 {
 header {
   position: relative;
   margin: 0;
-  padding: 0 0 37px 0;
+  padding: 0 0 17px 0;
   z-index: 11;
   background: #131926 url(../img/concrete_seamless.png) repeat;
 }
@@ -193,6 +193,11 @@ header .tel {
 .menu_box.indent {
   background: #ffffff;
 }
+.ba_navbar {
+  background-color: #282626;
+  color: #FFFFFF;
+}
+
 nav.tm_navbar {
   position: relative;
   z-index: 0;
@@ -1700,6 +1705,9 @@ footer .col-lg-3 {
   header {
     text-align: center;
   }
+  .content-wrapper {
+    padding-top: 50px;
+  }
   header .box {
     max-height: none;
   }
@@ -1732,11 +1740,12 @@ footer .col-lg-3 {
     margin: 0;
     text-align: center;
   }
+  /* Changed Nav none -> flex */
   nav.tm_navbar .nav {
-    display: none !important;
+    display: inline-flex !important;
   }
   .select-menu {
-    display: inline-block !important;
+    display: none !important;
     padding: 4px 4px 4px 0;
     margin: 30px 0 0 0;
     width: 100%;

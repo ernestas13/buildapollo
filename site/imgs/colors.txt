@@ -2,3 +2,39 @@ Green : #00A752
 Black: #282626
 Grey : #D1D3D5
 White: #FFFFFF
+
+
+version: 1
+frontend:
+  phases:
+    # IMPORTANT - Please verify your build commands
+    build:
+      commands: 
+        - npm install -g http-server # Install http-server globally
+        - http-server -p 3000        # Run http-server on port 3000
+  artifacts:
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths: []
+
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install                # Install dependencies
+    build:
+      commands:
+        - npm install -g http-server # Install http-server globally
+        - http-server -p 3000        # Start the server on port 3000
+  artifacts:
+    baseDirectory: /site             # Ensure this matches where your output files are located
+    files:
+      - '**/*'                       # Include all files from the base directory
+  cache:
+    paths: []
+
+
