@@ -56,7 +56,7 @@ h1.navbar-brand_ a img {
 h2 {
   font: 36px/1em 'Play';
   text-transform: uppercase;
-  margin: 0 0 51px 0;
+  margin: 0 0 30px 0;
   color: #1f1f1f;
 }
 h2 span {
@@ -67,7 +67,7 @@ h2.indent {
   text-transform: uppercase;
   margin: 0 0 51px 0;
   color: #1f1f1f;
-  margin: 0 0 43px 0;
+  margin: 0 0 30px 0;
 }
 h3 {
   font: bold 18px/1em 'Play';
@@ -96,7 +96,7 @@ h5 {
   background: #ffffff;
 }
 .content.indent {
-  padding: 87px 0 0 0;
+  padding: 50px 0 0 0;
   background: #ffffff;
 }
 .center {
@@ -168,8 +168,9 @@ header .tel {
   color: #00A752;
 }
 .bg_pic {
-  background: #131926 url(../img/bg_pic.jpg) right 0 no-repeat;
-  height: 221px;
+  background: #131926 url(../apollo/Apollo\ House-11.png) right 0 no-repeat;
+  /* background: #131926 url(../apollo/Apollo\ House-11.png); */
+  height: 521px;
 }
 /* menu
 ========================================================*/
@@ -527,7 +528,7 @@ nav.tm_navbar .sub-menu > ul li > ul li a:hover {
 }
 .thumb-box6 {
   overflow: hidden;
-  padding: 75px 0 0 0;
+  padding: 10px 0 0 0;
   background: #ffffff;
 }
 .thumb-box6 .col-lg-4 {
@@ -535,13 +536,14 @@ nav.tm_navbar .sub-menu > ul li > ul li a:hover {
 }
 .thumb-box7 {
   overflow: hidden;
-  background: #131926 url(../img/concrete_seamless.png) repeat;
-  padding: 87px 0 58px 0;
+  /* background: #131926 url(../img/concrete_seamless.png) repeat; */
+  background: #FFFFFF;
+  padding: 20px 0 0 0;
 }
 .thumb-box8 {
   overflow: hidden;
   background: #ffffff;
-  padding: 87px 0 0 0;
+  padding: 10px 0 0 0;
 }
 .thumb-box8 figure img {
   width: 100%;
@@ -573,12 +575,12 @@ nav.tm_navbar .sub-menu > ul li > ul li a:hover {
 }
 .thumb-box11 {
   overflow: hidden;
-  padding: 84px 0 74px 0;
+  padding: 20px 0 20px 0;
   background: #f7f7f7;
 }
 .thumb-box11 .title {
   color: #00A752;
-  font: 30px/1em 'Play';
+  font: 50px/1em 'Play';
   text-transform: uppercase;
   margin-bottom: 11px;
 }
