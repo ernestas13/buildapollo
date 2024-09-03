@@ -543,7 +543,7 @@ nav.tm_navbar .sub-menu > ul li > ul li a:hover {
 .thumb-box8 {
   overflow: hidden;
   background: #ffffff;
-  padding: 10px 0 0 0;
+  padding: 10px 0 63px 0;
 }
 .thumb-box8 figure img {
   width: 100%;
@@ -575,8 +575,8 @@ nav.tm_navbar .sub-menu > ul li > ul li a:hover {
 }
 .thumb-box11 {
   overflow: hidden;
-  padding: 20px 0 20px 0;
-  background: #f7f7f7;
+  padding: 30px 0 20px 0;
+  background: #FFFFFF;
 }
 .thumb-box11 .title {
   color: #00A752;
@@ -2243,11 +2243,12 @@ footer .col-lg-3 {
   }
   
   .list_btn1 {
-    text-align: center;
+    text-align: right;
     position: relative;
     top: 0;
     right: 0;
     margin: 0 0 20px -19px;
+    padding-right: 50px;
   }
   .thumb-box4 {
     text-align: center;
