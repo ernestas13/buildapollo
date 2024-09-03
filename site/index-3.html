@@ -40,7 +40,7 @@
         jQuery('.camera_wrap').camera();
     });
 </script> -->
-    <script>
+    <!-- <script>
         $(window).load(function () {
             $(function () {
                 $('#foo1').carouFredSel({
@@ -66,8 +66,37 @@
                 });
             });
         });
-    </script>
+    </script> -->
     <script>
+        $(window).load(function () {
+            const carousels = ['#foo1', '#foo2', '#foo3', '#foo4', '#foo5', '#foo6', '#foo7', '#foo8'];
+            carousels.forEach(function (carousel, index) {
+                $(carousel).carouFredSel({
+                    auto: false,
+                    responsive: true,
+                    width: '100%',
+                    scroll: 1,
+                    prev: '#prev' + (index + 1),
+                    next: '#next' + (index + 1),
+                    items: {
+                        height: 'auto',
+                        width: 380,
+                        visible: {
+                            min: 1,
+                            max: 4
+                        }
+                    },
+                    mousewheel: true,
+                    swipe: {
+                        onMouse: true,
+                        onTouch: true
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- <script>
         $(window).load(function () {
             $(function () {
                 $('#foo2').carouFredSel({
@@ -93,7 +122,7 @@
                 });
             });
         });
-    </script>
+    </script> -->
     <script src="js/wow/wow.js"></script>
     <script src="js/wow/device.min.js"></script>
     <script>
@@ -135,7 +164,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <p class="title wow fadeInLeft">Our Projects</p>
+                    <p class="title wow fadeInLeft">Projects</p>
                     <p class="description wow fadeInLeft" data-wow-delay="0.1s">exercitationem ullam corporis</p>
                     <hr>
                 </div>
@@ -186,12 +215,12 @@
         </div>
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wow fadeInRight">
           <!-- Carousel Section -->
-          <div class="list_carousel2 responsive clearfix wow fadeInUp" data-wow-delay="0.1s">
+          <div class="list_carousel1 responsive clearfix wow fadeInUp" data-wow-delay="0.1s">
             <div class="list_btn1">
-              <a id="prev2" class="prev2" href="#"></a>
-              <a id="next2" class="next2" href="#"></a>
+              <a id="prev1" class="prev2" href="#"></a>
+              <a id="next1" class="next2" href="#"></a>
             </div>
-            <ul id="foo2" class="carousel">
+            <ul id="foo1" class="carousel">
               <li>
                 <figure><img src="apollo/naasbuild/naasbuild4.jpg" alt=""></figure>
               </li>
@@ -225,36 +254,378 @@
       </div>
     </div>
   </div>
-  
-        <div class="thumb-box9">
-            <div class="container">
-                <h2 class="wow fadeInRight">commercial projects</h2>
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <ul class="list1 wow fadeInLeft" data-wow-delay="0.1s">
-                            <li><a href="#">Canoe/Kayak Dock - Portsmouth, NH</a></li>
-                            <li><a href="#">North Pier - Portsmouth, NH</a></li>
-                            <li><a href="#">Observation Pier - Portsmouth, NH</a></li>
-                            <li><a href="#">Pile Replacement - Portsmouth, NH</a></li>
-                            <li><a href="#">Boat Launch - Portsmouth, NH</a></li>
-                            <li><a href="#">Freedom Boat Club - Portsmouth, NH</a></li>
-                            <li><a href="#">Commercial Dock System - Kittery, ME</a></li>
-                            <li><a href="#">Creek Farm - Portsmouth, NH</a></li>
-                            <li><a href="#">Kittery Point Yacht Yard - Eliot, ME</a></li>
-                            <li><a href="#">Johnson Pier - Portsmouth, NH</a></li>
-                            <li><a href="#">Sea Cabins - Kittery Point, ME</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 wow fadeInRight">
-                        <figure><img src="img/page4_pic3.jpg" alt=""></figure>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 wow fadeInRight" data-wow-delay="0.1s">
-                        <figure><img src="img/page4_pic4.jpg" alt=""></figure>
-                    </div>
 
-                </div>
-            </div>
+
+  <div class="thumb-box9">
+    <div class="container">
+      <h2 class="wow fadeInRight">Naas Build</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <ul class="list1 wow fadeInLeft" data-wow-delay="0.1s">
+            <li><a href="#">Pilings Pinned to Ledge</a></li>
+            <li><a href="#">Pier with Steel Pilings</a></li>
+            <li><a href="#">Steel Framed Pier</a></li>
+            <li><a href="#">Aluminum Pier</a></li>
+            <li><a href="#">Community Pier</a></li>
+            <li><a href="#">Project With No Fixed Pier</a></li>
+          </ul>
         </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wow fadeInRight">
+          <!-- Carousel Section -->
+          <div class="list_carousel2 responsive clearfix wow fadeInUp" data-wow-delay="0.1s">
+            <div class="list_btn1">
+              <a id="prev2" class="prev2" href="#"></a>
+              <a id="next2" class="next2" href="#"></a>
+            </div>
+            <ul id="foo2" class="carousel">
+              <li>
+                <figure><img src="apollo/naashouse/naashouse6 - Copy.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naashouse/naashouse2.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naashouse/naashouse.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naashouse/1.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naashouse/naashouse3.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naashouse/naashouse4.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naashouse/4.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naashouse/5.jpeg" alt=""></figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thumb-box10">
+    <div class="container">
+      <h2 class="wow fadeInRight">Naas</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <ul class="list1 wow fadeInLeft" data-wow-delay="0.1s">
+            <li><a href="#">Pilings Pinned to Ledge</a></li>
+            <li><a href="#">Pier with Steel Pilings</a></li>
+            <li><a href="#">Steel Framed Pier</a></li>
+            <li><a href="#">Aluminum Pier</a></li>
+            <li><a href="#">Community Pier</a></li>
+            <li><a href="#">Project With No Fixed Pier</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wow fadeInRight">
+          <!-- Carousel Section -->
+          <div class="list_carousel3 responsive clearfix wow fadeInUp" data-wow-delay="0.1s">
+            <div class="list_btn1">
+              <a id="prev3" class="prev2" href="#"></a>
+              <a id="next3" class="next2" href="#"></a>
+            </div>
+            <ul id="foo3" class="carousel">
+              <li>
+                <figure><img src="apollo/naas/naas.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas9.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas15.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas16.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas14.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas12.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas11.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas7.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas6.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas5.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas4.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas3.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/naas/naas10.jpg" alt=""></figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thumb-box11">
+    <div class="container">
+      <h2 class="wow fadeInRight">Eadestown</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <ul class="list1 wow fadeInLeft" data-wow-delay="0.1s">
+            <li><a href="#">Pilings Pinned to Ledge</a></li>
+            <li><a href="#">Pier with Steel Pilings</a></li>
+            <li><a href="#">Steel Framed Pier</a></li>
+            <li><a href="#">Aluminum Pier</a></li>
+            <li><a href="#">Community Pier</a></li>
+            <li><a href="#">Project With No Fixed Pier</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wow fadeInRight">
+          <!-- Carousel Section -->
+          <div class="list_carousel4 responsive clearfix wow fadeInUp" data-wow-delay="0.1s">
+            <div class="list_btn1">
+              <a id="prev4" class="prev2" href="#"></a>
+              <a id="next4" class="next2" href="#"></a>
+            </div>
+            <ul id="foo4" class="carousel">
+              <li>
+                <figure><img src="apollo/eades/eades11.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/eades/2.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/eades/eades6.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/eades/eades5.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/eades/eades4.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/eades/eades3.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/eades/eades2.jpg" alt=""></figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thumb-box11">
+    <div class="container">
+      <h2 class="wow fadeInRight">Featherbed Cottage</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <ul class="list1 wow fadeInLeft" data-wow-delay="0.1s">
+            <li><a href="#">Pilings Pinned to Ledge</a></li>
+            <li><a href="#">Pier with Steel Pilings</a></li>
+            <li><a href="#">Steel Framed Pier</a></li>
+            <li><a href="#">Aluminum Pier</a></li>
+            <li><a href="#">Community Pier</a></li>
+            <li><a href="#">Project With No Fixed Pier</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wow fadeInRight">
+          <!-- Carousel Section -->
+          <div class="list_carousel5 responsive clearfix wow fadeInUp" data-wow-delay="0.1s">
+            <div class="list_btn1">
+              <a id="prev5" class="prev2" href="#"></a>
+              <a id="next5" class="next2" href="#"></a>
+            </div>
+            <ul id="foo5" class="carousel">
+              <li>
+                <figure><img src="apollo/featherbed/cot2.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/featherbed/cot4.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/featherbed/cot6.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/featherbed/cot7.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/featherbed/cot5.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/featherbed/cot1.jpeg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/featherbed/cto3.jpeg" alt=""></figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thumb-box12">
+    <div class="container">
+      <h2 class="wow fadeInRight">Extension</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <ul class="list1 wow fadeInLeft" data-wow-delay="0.1s">
+            <li><a href="#">Pilings Pinned to Ledge</a></li>
+            <li><a href="#">Pier with Steel Pilings</a></li>
+            <li><a href="#">Steel Framed Pier</a></li>
+            <li><a href="#">Aluminum Pier</a></li>
+            <li><a href="#">Community Pier</a></li>
+            <li><a href="#">Project With No Fixed Pier</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wow fadeInRight">
+          <!-- Carousel Section -->
+          <div class="list_carousel6 responsive clearfix wow fadeInUp" data-wow-delay="0.1s">
+            <div class="list_btn1">
+              <a id="prev6" class="prev2" href="#"></a>
+              <a id="next6" class="next2" href="#"></a>
+            </div>
+            <ul id="foo6" class="carousel">
+              <li>
+                <figure><img src="apollo/3extension/3extension8.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/3extension/3extension3.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/3extension/3extension6.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/3extension/3extension7.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/3extension/3extension19.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/3extension/3extension14.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/3extension/3extension20.jpg" alt=""></figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thumb-box13">
+    <div class="container">
+      <h2 class="wow fadeInRight">Extension 2</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <ul class="list1 wow fadeInLeft" data-wow-delay="0.1s">
+            <li><a href="#">Pilings Pinned to Ledge</a></li>
+            <li><a href="#">Pier with Steel Pilings</a></li>
+            <li><a href="#">Steel Framed Pier</a></li>
+            <li><a href="#">Aluminum Pier</a></li>
+            <li><a href="#">Community Pier</a></li>
+            <li><a href="#">Project With No Fixed Pier</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wow fadeInRight">
+          <!-- Carousel Section -->
+          <div class="list_carousel7 responsive clearfix wow fadeInUp" data-wow-delay="0.1s">
+            <div class="list_btn1">
+              <a id="prev7" class="prev2" href="#"></a>
+              <a id="next7" class="next2" href="#"></a>
+            </div>
+            <ul id="foo7" class="carousel">
+              <li>
+                <figure><img src="apollo/extension/extension.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/extension/extension4.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/extension/extension3.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/extension/extension2.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/extension/extension7.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/extension/extension6.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/extension/extension5.jpg" alt=""></figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thumb-box14">
+    <div class="container">
+      <h2 class="wow fadeInRight">Extension 3</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <ul class="list1 wow fadeInLeft" data-wow-delay="0.1s">
+            <li><a href="#">Pilings Pinned to Ledge</a></li>
+            <li><a href="#">Pier with Steel Pilings</a></li>
+            <li><a href="#">Steel Framed Pier</a></li>
+            <li><a href="#">Aluminum Pier</a></li>
+            <li><a href="#">Community Pier</a></li>
+            <li><a href="#">Project With No Fixed Pier</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wow fadeInRight">
+          <!-- Carousel Section -->
+          <div class="list_carousel8 responsive clearfix wow fadeInUp" data-wow-delay="0.1s">
+            <div class="list_btn1">
+              <a id="prev8" class="prev2" href="#"></a>
+              <a id="next8" class="next2" href="#"></a>
+            </div>
+            <ul id="foo8" class="carousel">
+              <li>
+                <figure><img src="apollo/dub/dub6.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/dub/dub9.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/dub/dub10.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/dub/dub4.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/dub/dub2.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/dub/dub3.jpg" alt=""></figure>
+              </li>
+              <li>
+                <figure><img src="apollo/dub/dub8.jpg" alt=""></figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
         <div class="thumb-box4">
             <div class="container">
