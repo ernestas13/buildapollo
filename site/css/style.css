@@ -1714,6 +1714,70 @@ nav.tm_navbar .sub-menu > ul li > ul li a:hover {
   cursor: default !important;
 }
 
+/*-----carousel9-----*/
+.list_carousel9.responsive {
+  position: relative;
+  width: auto;
+  margin: 0;
+  z-index: 0;
+}
+.list_carousel9 #foo9 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+  cursor: default;
+}
+.list_carousel9 #foo9 > li {
+  padding: 0;
+  float: left;
+  cursor: default;
+  margin-right: 30px;
+  border-bottom: 6px solid #e1e1e1;
+}
+.list_carousel9 #foo9 > li figure img {
+  width: 100%;
+}
+.list_carousel9 #foo9 > li .caption {
+  padding: 27px 21px 22px 21px;
+  background: #eaeaea;
+  position: relative;
+  overflow: hidden;
+}
+.list_carousel9 #foo9 > li .caption p {
+  font: 13px 'Play';
+  text-transform: uppercase;
+  color: #091824;
+  margin-bottom: 0;
+  float: left;
+  -webkit-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.list_carousel9 #foo9 > li .caption a {
+  float: right;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  position: absolute;
+  top: 19px;
+  right: 14px;
+  background: url(../img/more.png) 0 top no-repeat;
+}
+.list_carousel9 #foo9 > li .caption a:hover {
+  background: url(../img/more.png) 0 bottom no-repeat;
+}
+.list_carousel9 #foo9 > li:hover .caption p {
+  color: #00A752;
+  -webkit-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.list_carousel9.responsive .caroufredsel_wrapper {
+  cursor: default !important;
+}
 
 .list_btn1 .prev2,
 .list_btn1 .next2 {
@@ -2241,6 +2305,18 @@ footer .col-lg-3 {
     left: 0;
     float: none;
   }
+  .list_carousel9 #foo9 > li .caption {
+    text-align: center;
+  }
+  .list_carousel9 #foo9 > li .caption p {
+    margin-bottom: 10px;
+  }
+  .list_carousel9 #foo9 > li .caption a {
+    position: relative;
+    top: 0;
+    left: 0;
+    float: none;
+  }
   
   .list_btn1 {
     text-align: right;
@@ -2358,6 +2434,10 @@ footer .col-lg-3 {
   }
   
   .list_carousel8 #foo8 > li {
+    margin-right: 0;
+  }
+
+  .list_carousel9 #foo9 > li {
     margin-right: 0;
   }
   
