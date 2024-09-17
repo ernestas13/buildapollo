@@ -211,6 +211,22 @@ function _recaptcha_aes_pad($val) {
 
 /* Mailhide related code */
 
+function _recaptcha_aes_encrypt($val, $ky) {
+        if (!function_exists("openssl_encrypt")) {
+            die("To use reCAPTCHA Mailhide, you need to have the openssl php module installed.");
+        }
+        
+        $method = 'aes-128-cbc'; 
+        $iv = str_repeat("\0", 16); 
+        
+        $val = _recaptcha_aes_pad($val);
+    
+        $encrypted = openssl_encrypt($val, $method, $ky, OPENSSL_RAW_DATA, $iv);
+    
+        return $encrypted;
+    }
+    
+/*
 function _recaptcha_aes_encrypt($val,$ky) {
 	if (! function_exists ("mcrypt_encrypt")) {
 		die ("To use reCAPTCHA Mailhide, you need to have the mcrypt php module installed.");
@@ -220,7 +236,7 @@ function _recaptcha_aes_encrypt($val,$ky) {
 	$val=_recaptcha_aes_pad($val);
 	return mcrypt_encrypt($enc, $ky, $val, $mode, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0");
 }
-
+*/
 
 function _recaptcha_mailhide_urlbase64 ($x) {
 	return strtr(base64_encode ($x), '+/', '-_');
