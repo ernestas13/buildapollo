@@ -1,8 +1,10 @@
 <?php
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+
 	$owner_email=getenv('SES_OWNER_EMAIL');
-	//SMTP server settings	
 	$host = getenv('SES_HOST');
-    $port = getenv('SES_PORT');//"587";
+    $port = getenv('SES_PORT');
     $username = getenv('SES_USERNAME');
     $password = getenv('SES_PASSWORD');
 
@@ -11,7 +13,7 @@
 	$message_body='';
 	$message_type='html';
 
-	$max_file_size=50;//MB 
+	$max_file_size=50;
 	$file_types='/(doc|docx|txt|pdf|zip|rar)$/';
 	$error_text='something goes wrong';
 	$error_text_filesize='File size must be less than';
@@ -43,7 +45,6 @@ try{
 	$m->To($owner_email);
 	$m->Subject($subject);
 	$m->Body($message_body,$message_type);
-	//$m->log_on(true);
 
 	if(isset($_FILES['attachment'])){
 		if($_FILES['attachment']['size']>$max_file_size){
