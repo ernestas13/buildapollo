@@ -1,10 +1,10 @@
 <?php
-	$owner_email='SES_OWNER_EMAIL';
+	$owner_email=getenv('SES_OWNER_EMAIL');
 	//SMTP server settings	
-	$host = 'SES_HOST';
-    $port = 'SES_PORT';//"587";
-    $username = 'SES_USERNAME';
-    $password = 'SES_PASSWORD';
+	$host = getenv('SES_HOST');
+    $port = getenv('SES_PORT');//"587";
+    $username = getenv('SES_USERNAME');
+    $password = getenv('SES_PASSWORD');
 
     $subject='A message from your site visitor ';
     $user_email='';    
@@ -17,7 +17,7 @@
 	$error_text_filesize='File size must be less than';https://clients.hostingireland.ie/clientarea.php
 	$error_text_filetype='Failed to upload file. This file type is not allowed. Accepted files types: doc, docx, txt, pdf, zip, rar.';
 
-	$private_recaptcha_key='6LeZwukSAAAAACmqrbLmdpvdhC68NLB1c9EA5vzU'; //localhost
+	// $private_recaptcha_key='6LeZwukSAAAAACmqrbLmdpvdhC68NLB1c9EA5vzU'; //localhost
 	
 	
 	$use_recaptcha=isset( $_POST["recaptcha_challenge_field"]) and isset($_POST["recaptcha_response_field"]);
