@@ -157,15 +157,15 @@ $(window).load(function(){
 					,responseMessage
 
 				modal.on('hidden.bs.modal',function(){
-					if(responseMessage!=='success')
-						$('#recaptcha_reload',form).click()
-						,$('#recaptcha_response_field',form).focus()						
+					if(responseMessage!=='success'){}
+						// $('#recaptcha_reload',form).click()
+						// ,$('#recaptcha_response_field',form).focus()						
 				})
 
 				$('[data-constraints]',form).trigger('validate.form')
 
-				if($('#recaptcha_response_field',form).val()==='')
-					$('label.recaptcha',form).addClass(opt.emptyClass)
+				// if($('#recaptcha_response_field',form).val()==='')
+				// 	$('label.recaptcha',form).addClass(opt.emptyClass)
 				
 				if(!$('label.'+opt.invalidClass+',label.'+opt.emptyClass,form).length&&!form.hasClass(opt.processingClass)){
 					form.addClass(opt.processingClass)

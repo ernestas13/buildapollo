@@ -1,6 +1,4 @@
 <?php
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
 
 	$owner_email=getenv('SES_OWNER_EMAIL');
 	$host = getenv('SES_HOST');
