@@ -207,16 +207,26 @@ class Mail
                 if (!is_array($value))
                     $new_mass_head[$key] = $value;
             }
-            reset($new_mass_head);
-            while (list( $hdr, $value ) = each($new_mass_head))
-            {
-                if ($hdr == "From" and strlen($this->names_email['from']))
-                    $this->ready_headers[$resource] .= $hdr.": =?".$this->charset."?Q?".str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['from'], "\r\n", "  "))))."?= <".$value.">\r\n";
-                elseif ($hdr == "Reply-To" and strlen($this->names_email['Reply-To']))
-                    $this->ready_headers[$resource] .= $hdr.": =?".$this->charset."?Q?".str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['Reply-To'], "\r\n", "  "))))."?= <".$value.">\r\n";
-                elseif ($hdr != "BCC")
-                    $this->ready_headers[$resource] .= $hdr.": ".$value."\r\n";
+            foreach ($new_mass_head as $hdr => $value) {
+                if ($hdr == "From" and strlen($this->names_email['from'])) {
+                    $this->ready_headers[$resource] .= $hdr . ": =?" . $this->charset . "?Q?" . str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['from'], "\r\n", "  "))))."?= <" . $value . ">\r\n";
+                } elseif ($hdr == "Reply-To" and strlen($this->names_email['Reply-To'])) {
+                    $this->ready_headers[$resource] .= $hdr . ": =?" . $this->charset . "?Q?" . str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['Reply-To'], "\r\n", "  "))))."?= <" . $value . ">\r\n";
+                } elseif ($hdr != "BCC") {
+                    $this->ready_headers[$resource] .= $hdr . ": " . $value . "\r\n";
+                }
             }
+            
+            // reset($new_mass_head);
+            // while (list( $hdr, $value ) = each($new_mass_head))
+            // {
+            //     if ($hdr == "From" and strlen($this->names_email['from']))
+            //         $this->ready_headers[$resource] .= $hdr.": =?".$this->charset."?Q?".str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['from'], "\r\n", "  "))))."?= <".$value.">\r\n";
+            //     elseif ($hdr == "Reply-To" and strlen($this->names_email['Reply-To']))
+            //         $this->ready_headers[$resource] .= $hdr.": =?".$this->charset."?Q?".str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['Reply-To'], "\r\n", "  "))))."?= <".$value.">\r\n";
+            //     elseif ($hdr != "BCC")
+            //         $this->ready_headers[$resource] .= $hdr.": ".$value."\r\n";
+            // }
         }
         else
         {
@@ -229,16 +239,26 @@ class Mail
                 if (!is_array($value))
                     $new_mass_head[$key] = $value;
             }
-            reset($new_mass_head);
-            while (list( $hdr, $value ) = each($new_mass_head))
-            {
-                if ($hdr == "From" and strlen($this->names_email['from']))
-                    $this->ready_headers[$resource] .= $hdr.": =?".$this->charset."?Q?".str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['from'], "\r\n", "  "))))."?= <".$value.">\r\n";
-                elseif ($hdr == "Reply-To" and strlen($this->names_email['Reply-To']))
-                    $this->ready_headers[$resource] .= $hdr.": =?".$this->charset."?Q?".str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['Reply-To'], "\r\n", "  "))))."?= <".$value.">\r\n";
-                elseif ($hdr != "Subject" and $hdr != "To")
+            foreach ($new_mass_head as $hdr => $value) {
+                if ($hdr == "From" and strlen($this->names_email['from'])) {
+                    $this->ready_headers[$resource] .= $hdr . ": =?" . $this->charset . "?Q?" . str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['from'], "\r\n", "  "))))."?= <" . $value . ">\r\n";
+                } elseif ($hdr == "Reply-To" and strlen($this->names_email['Reply-To'])) {
+                    $this->ready_headers[$resource] .= $hdr . ": =?" . $this->charset . "?Q?" . str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['Reply-To'], "\r\n", "  "))))."?= <" . $value . ">\r\n";
+                } elseif ($hdr != "Subject" and $hdr != "To") {
                     $this->ready_headers[$resource] .= "$hdr: $value\r\n";
+                }
             }
+            
+            // reset($new_mass_head);
+            // while (list( $hdr, $value ) = each($new_mass_head))
+            // {
+            //     if ($hdr == "From" and strlen($this->names_email['from']))
+            //         $this->ready_headers[$resource] .= $hdr.": =?".$this->charset."?Q?".str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['from'], "\r\n", "  "))))."?= <".$value.">\r\n";
+            //     elseif ($hdr == "Reply-To" and strlen($this->names_email['Reply-To']))
+            //         $this->ready_headers[$resource] .= $hdr.": =?".$this->charset."?Q?".str_replace("+", "_", str_replace("%", "=", urlencode(strtr($this->names_email['Reply-To'], "\r\n", "  "))))."?= <".$value.">\r\n";
+            //     elseif ($hdr != "Subject" and $hdr != "To")
+            //         $this->ready_headers[$resource] .= "$hdr: $value\r\n";
+            // }
         }
         $this->ready_headers[$resource].=$this->body_header[$resource_body]."\r\n";
     }
@@ -358,27 +378,54 @@ class Mail
         }
     }
     public function ValidEmail($address)
+{
+    if (function_exists('filter_list'))
     {
-        if (function_exists('filter_list'))
+        $valid_email = filter_var($address, FILTER_VALIDATE_EMAIL);
+        return $valid_email !== false;
+    }
+    else
+    {
+        // Extract email from angle brackets if present
+        if (preg_match("/.*<(.+)>/", $address, $regs))
         {
-            $valid_email = filter_var($address, FILTER_VALIDATE_EMAIL);
-            if ($valid_email !== false)
-                return true;
-            else
-                return false;
+            $address = $regs[1];
+        }
+        
+        // Validate email format
+        if (preg_match("/^[^@  ]+@([a-zA-Z0-9\-]+\.)+([a-zA-Z0-9\-]{2}|net|com|gov|mil|org|edu|int)$/", $address))
+        {
+            return true;
         }
         else
         {
-            if (ereg(".*<(.+)>", $address, $regs))
-            {
-                $address = $regs[1];
-            }
-            if (ereg("^[^@  ]+@([a-zA-Z0-9\-]+\.)+([a-zA-Z0-9\-]{2}|net|com|gov|mil|org|edu|int)\$", $address))
-                return true;
-            else
-                return false;
+            return false;
         }
     }
+}
+
+    // public function ValidEmail($address)
+    // {
+    //     if (function_exists('filter_list'))
+    //     {
+    //         $valid_email = filter_var($address, FILTER_VALIDATE_EMAIL);
+    //         if ($valid_email !== false)
+    //             return true;
+    //         else
+    //             return false;
+    //     }
+    //     else
+    //     {
+    //         if (ereg(".*<(.+)>", $address, $regs))
+    //         {
+    //             $address = $regs[1];
+    //         }
+    //         if (ereg("^[^@  ]+@([a-zA-Z0-9\-]+\.)+([a-zA-Z0-9\-]{2}|net|com|gov|mil|org|edu|int)\$", $address))
+    //             return true;
+    //         else
+    //             return false;
+    //     }
+    // }
     public function Cc($cc, $resource = 'webi')
     {
         if (!strlen($resource))
