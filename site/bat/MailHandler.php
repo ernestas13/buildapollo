@@ -1,10 +1,10 @@
 <?php
-	$owner_email='#';
+	$owner_email='SES_OWNER_EMAIL';
 	//SMTP server settings	
-	$host = '';
-    $port = '465';//"587";
-    $username = '';
-    $password = '';
+	$host = 'SES_HOST';
+    $port = 'SES_PORT';//"587";
+    $username = 'SES_USERNAME';
+    $password = 'SES_PASSWORD';
 
     $subject='A message from your site visitor ';
     $user_email='';    
