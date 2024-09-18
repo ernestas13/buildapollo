@@ -1,10 +1,10 @@
 //TMForm 1.0.1
 $(window).load(function(){
 	$('#contact-form').TMForm({
-		recaptchaPublicKey:'6LeZwukSAAAAAG8HbIAE0XeNvCon_cXThgu9afkj'		
+		recaptchaPublicKey:'6Ld2J0cqAAAAACqwyFycU0yE-v7OOYxqnLrqi_jr'		
 	})
     $('#contact-form2').TMForm({
-		recaptchaPublicKey:'6LeZwukSAAAAAG8HbIAE0XeNvCon_cXThgu9afkj'		
+		recaptchaPublicKey:'6Ld2J0cqAAAAACqwyFycU0yE-v7OOYxqnLrqi_jr'		
 	})
 })
 
@@ -157,15 +157,15 @@ $(window).load(function(){
 					,responseMessage
 
 				modal.on('hidden.bs.modal',function(){
-					if(responseMessage!=='success'){}
-						// $('#recaptcha_reload',form).click()
-						// ,$('#recaptcha_response_field',form).focus()						
+					if(responseMessage!=='success')
+						$('#recaptcha_reload',form).click()
+						,$('#recaptcha_response_field',form).focus()						
 				})
 
 				$('[data-constraints]',form).trigger('validate.form')
 
-				// if($('#recaptcha_response_field',form).val()==='')
-				// 	$('label.recaptcha',form).addClass(opt.emptyClass)
+				if($('#recaptcha_response_field',form).val()==='')
+					$('label.recaptcha',form).addClass(opt.emptyClass)
 				
 				if(!$('label.'+opt.invalidClass+',label.'+opt.emptyClass,form).length&&!form.hasClass(opt.processingClass)){
 					form.addClass(opt.processingClass)
@@ -305,6 +305,314 @@ $(window).load(function(){
 		})
 	}
 })(jQuery)
+
+
+// $(window).load(function(){
+// 	$('#contact-form').TMForm({
+// 		recaptchaPublicKey:'6LeZwukSAAAAAG8HbIAE0XeNvCon_cXThgu9afkj'		
+// 	})
+//     $('#contact-form2').TMForm({
+// 		recaptchaPublicKey:'6LeZwukSAAAAAG8HbIAE0XeNvCon_cXThgu9afkj'		
+// 	})
+// })
+
+// ;(function($){
+// 	$.fn.TMForm=function(opt){
+// 		return this.each(TMForm)
+		
+// 		function TMForm(){
+// 			var form=$(this)
+// 			opt=$.extend({	
+// 					okClass:'ok'
+// 					,emptyClass:'empty'
+// 					,invalidClass:'invalid'
+// 					,successClass:'success'
+// 					,responseErrorClass:'response-error'	
+// 					,responseMessageClass:'response-message'
+// 					,processingClass:'processing'
+// 					,onceVerifiedClass:'once-verified'
+// 					,mailHandlerURL:'bat/MailHandler.php'					
+// 					,successShowDelay:'4000'
+// 					,stripHTML:true
+// 					,recaptchaPublicKey:''
+// 					,capchaTheme:'clean'
+// 				},opt)
+				
+// 			init()
+			
+// 			function init(){				
+// 				form
+// 					.on('submit',formSubmit)
+// 					.on('reset',formReset)
+// 					.on('focus','[data-constraints]',function(){
+// 						$(this).parents('label').removeClass(opt.emptyClass)
+// 					})
+// 					.on('blur','[data-constraints]:not(.once-verified)',function(){
+// 						$(this)
+// 							.addClass(opt.onceVerifiedClass)
+// 							.trigger('validate.form')
+// 					})
+// 					.on('keyup','[data-constraints].once-verified',function(){
+// 						$(this).trigger('validate.form')
+// 					})
+// 					.on('keydown','input',function(e){
+// 						var $this=$(this)
+// 							,next=$this.parents('label').next('label').find('input,textarea')
+// 						if(e.keyCode===13)
+// 							if(next.length)
+// 								next.focus()
+// 							else
+// 								form.submit()
+// 					})
+// 					.on('keydown','textarea',function(e){
+// 						if(e.keyCode===13&&e.ctrlKey)
+// 							$(this).parents('label').next('label').find('input,textarea').focus()
+// 					})
+// 					.on('change','input[type="file"]',function(){						
+// 						$(this).parents('label').next('label').find('input,textarea').focus()
+// 					})					
+// 					.attr({
+// 						method:'POST'
+// 						,action:opt.mailHandlerURL
+// 					})
+				
+// 				if($('[data-constraints]',form).length!==0)
+// 					$('[data-constraints]',form)
+// 						.regula('bind')
+// 						.on('show.placeholder',function(){
+// 							fieldDesolation($(this))
+// 						})
+// 						.on('validate.form',fieldValidate)
+					
+				
+// 				$('[placeholder]',form).TMPlaceholder()
+				
+// 				$('[data-type=submit]',form)
+// 					.click(function(){						
+// 						form.trigger('submit')
+// 						return false
+// 					})
+					
+// 				$('[data-type=reset]',form)
+// 					.click(function(){						
+// 						form.trigger('reset')
+// 						return false
+// 					})
+
+// 				if(opt.stripHTML)
+// 					form.append('<input type="hidden" name="stripHTML" value="true">')
+
+// 				if($('label.recaptcha',form).length!==0&&window.Recaptcha)
+// 					showRecaptcha()
+
+// 			}
+			
+// 			function fieldValidate(el){
+// 				var el=$(this)
+// 					,result=el.regula('validate')
+// 					,isEmpty=false
+// 					,isInvalid=false
+// 					,isRequired=!!~el.data('constraints').indexOf('@Required')
+				
+// 				$.each(result,function(){
+// 					if(this.constraintName==='Required')
+// 						isEmpty=true
+// 					else
+// 						isInvalid=true
+// 				})
+				
+// 				if(!el.hasClass(opt.onceVerifiedClass)&&!isEmpty)
+// 					el.addClass(opt.onceVerifiedClass)
+					
+// 				if(isEmpty)
+// 					el.parents('label').addClass(opt.emptyClass)
+								
+// 				if(isInvalid&&!isEmpty&&isRequired)
+// 					el.parents('label')
+// 						.removeClass(opt.emptyClass)
+// 						.removeClass(opt.okClass)
+// 						.addClass(opt.invalidClass)
+						
+// 				if(isInvalid&&!isRequired&&el.val())
+// 					el.parents('label')
+// 						.removeClass(opt.emptyClass)
+// 						.removeClass(opt.okClass)
+// 						.addClass(opt.invalidClass)
+					
+// 				if(!result.length)
+// 					el.parents('label')
+// 						.removeClass(opt.invalidClass)
+// 						.removeClass(opt.emptyClass)
+// 						.addClass(opt.okClass)
+// 			}
+			
+// 			function fieldDesolation(el){
+// 				el
+// 					.removeClass(opt.onceVerifiedClass)
+// 					.parents('label')
+// 						.removeClass(opt.invalidClass)
+// 						.removeClass(opt.emptyClass)
+// 						.removeClass(opt.okClass)
+// 			}
+			
+// 			function getValue(el){
+// 				return el.val()||false
+// 			}
+			
+// 			function formSubmit(){
+// 				var $this=$(this)
+// 					,modal=$('.'+opt.responseMessageClass)
+// 					,responseMessage
+
+// 				modal.on('hidden.bs.modal',function(){
+// 					if(responseMessage!=='success')
+// 						$('#recaptcha_reload',form).click()
+// 						,$('#recaptcha_response_field',form).focus()						
+// 				})
+
+// 				$('[data-constraints]',form).trigger('validate.form')
+
+// 				if($('#recaptcha_response_field',form).val()==='')
+// 					$('label.recaptcha',form).addClass(opt.emptyClass)
+				
+// 				if(!$('label.'+opt.invalidClass+',label.'+opt.emptyClass,form).length&&!form.hasClass(opt.processingClass)){
+// 					form.addClass(opt.processingClass)
+// 					$this.ajaxSubmit(function(e,d,a,c){
+// 						responseMessage=e
+// 						if(e=='success'){							
+// 							form
+// 								.removeClass(opt.processingClass)
+// 								.addClass(opt.successClass)
+
+// 							modal.find('.modal-title').text('Success!')
+// 							modal.find('.modal-body').text('Your message has been successfully sent!')
+
+// 							setTimeout(function(){
+// 								form
+// 								.removeClass(opt.successClass)
+// 								.trigger('reset')
+// 							},opt.successShowDelay)
+// 						}else{							
+// 							modal.find('.modal-title').text('Error!')
+// 							modal.find('.modal-body').html(e)
+
+// 							form
+// 								.removeClass(opt.processingClass)
+// 								.addClass(opt.responseErrorClass)
+
+// 							$('#recaptcha_response_field',form).val('')
+
+// 							setTimeout(function(){
+// 								form
+// 									.removeClass(opt.responseErrorClass)
+// 									//.trigger('reset')								
+// 							},opt.successShowDelay)
+// 						}
+// 						modal.modal({keyboard:true})						
+// 					})				
+// 				}				
+// 				return false
+// 			}
+			
+// 			function formReset(){
+// 				fieldDesolation($('[data-constraints]',form))					
+// 			}
+
+// 			function showRecaptcha(){
+// 				$('label.recaptcha',form)
+// 					.append('<div id="captchadiv"></div>')
+				
+// 				Recaptcha.create(
+// 					opt.recaptchaPublicKey
+// 					,'captchadiv'
+// 					, {
+// 						theme:opt.capchaTheme						
+// 					}
+// 				)
+
+// 				form					
+// 					.on('focus','#recaptcha_response_field',function(){
+// 						$(this).parents('label').removeClass(opt.emptyClass)						
+// 					})
+// 			}
+// 		}
+// 	}	
+// })(jQuery)
+
+// ;(function($){
+// 	$.fn.TMPlaceholder=function(opt){
+// 		return this.each(function(){
+// 			var th=$(this)
+// 				,placeholder_text
+// 				,placeholder
+						
+// 			opt=$.extend({
+// 					placeholderClass:'_placeholder'
+// 					,placeholderFocusedClass:'focused'
+// 					,placeholderHiddenClass:'hidden'
+// 				},opt)
+				
+// 			init()
+			
+// 			function init(){				
+// 				placeholder_text=th.attr('placeholder')
+// 				placeholder=$(document.createElement('span'))
+// 				placeholder
+// 					.addClass(opt.placeholderClass)
+// 					.css({				
+// 						left:th.prop('offsetLeft')
+// 						,top:th.prop('offsetTop')
+// 						,width:th.width()
+// 						,height:th.outerHeight()				
+// 					})
+// 					.text(placeholder_text)
+// 					.appendTo(th.parent())				
+// 					.click(function(){
+// 						th.focus()
+// 						return false
+// 					})
+// 					.on('contextmenu',function(){						
+// 						th.trigger('hide.placeholder').focus()						
+// 					})
+
+// 				th
+// 					.val('')
+// 					.removeAttr('placeholder')
+// 					.on('hide.placeholder',function(){
+// 						placeholder.addClass(opt.placeholderHiddenClass)
+// 					})
+// 					.on('show.placeholder',function(){
+// 						placeholder.removeClass(opt.placeholderHiddenClass)
+// 					})
+// 					.on('focus',function(){
+// 						placeholder.addClass(opt.placeholderFocusedClass)
+// 					})
+// 					.on('blur',function(){
+// 						var val=th.val()
+// 						if(val===''||val===placeholder_text)
+// 							th.val('')							
+// 							,th.trigger('show.placeholder')
+// 						placeholder.removeClass(opt.placeholderFocusedClass)
+// 					})
+// 					.on('keydown',function(e){												
+// 						if(e.keyCode===32||e.keyCode>46)
+// 							th.trigger('hide.placeholder')							
+// 					})
+// 					.on('keyup',function(){						
+// 						if(th.val()===''){							
+// 							th.trigger('show.placeholder')
+// 							return false
+// 						}else{							
+// 							th.trigger('hide.placeholder')
+// 						}
+// 					})
+// 					.parents('form').on('reset',function(){
+// 						th.trigger('show.placeholder')						
+// 					})
+// 			}			
+// 		})
+// 	}
+// })(jQuery)
 //using suggested jQuery practice by passing jQuery into a function
 //in order to have $ notation without conflicting with other libraries
 //Author: Troy Ingram
