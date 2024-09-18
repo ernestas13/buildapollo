@@ -63,6 +63,8 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
         message: message
     };
 
+    console.log('Payload:', JSON.stringify(payload));
+
     // Send the form data to your Lambda function using fetch
     fetch('https://pcq57hb7aa.execute-api.eu-north-1.amazonaws.com/prod/contact', { // Replace with your actual API Gateway URL
         method: 'POST',
