@@ -39,14 +39,36 @@
 			die ('wrong captcha');
 		}
 	}
+
+	if(isset($_POST['name']) and $_POST['name'] != ''){
+		$message_body .= '<p>Visitor: ' . htmlspecialchars($_POST['name']) . '</p>' . "\n" . '<br>' . "\n"; 
+		$subject .= htmlspecialchars($_POST['name']);
+	}
+	if(isset($_POST['email']) and $_POST['email'] != ''){
+		$message_body .= '<p>Email Address: ' . htmlspecialchars($_POST['email']) . '</p>' . "\n" . '<br>' . "\n";
+		$user_email = htmlspecialchars($_POST['email']);
+	}
+	if(isset($_POST['state']) and $_POST['state'] != ''){
+		$message_body .= '<p>State: ' . htmlspecialchars($_POST['state']) . '</p>' . "\n" . '<br>' . "\n";
+	}
+	if(isset($_POST['phone']) and $_POST['phone'] != ''){
+		$message_body .= '<p>Phone Number: ' . htmlspecialchars($_POST['phone']) . '</p>' . "\n" . '<br>' . "\n";
+	}
+	if(isset($_POST['fax']) and $_POST['fax'] != ''){
+		$message_body .= '<p>Fax Number: ' . htmlspecialchars($_POST['fax']) . '</p>' . "\n" . '<br>' . "\n";
+	}
+	if(isset($_POST['message']) and $_POST['message'] != ''){
+		$message_body .= '<p>Message: ' . htmlspecialchars($_POST['message']) . '</p>' . "\n";
+	}
 	
-	if(isset($_POST['name']) and $_POST['name'] != ''){$message_body .= '<p>Visitor: ' . $_POST['name'] . '</p>' . "\n" . '<br>' . "\n"; $subject.=$_POST['name'];}
-	if(isset($_POST['email']) and $_POST['email'] != ''){$message_body .= '<p>Email Address: ' . $_POST['email'] . '</p>' . "\n" . '<br>' . "\n"; $user_email=$_POST['email'];}
-	if(isset($_POST['state']) and $_POST['state'] != ''){$message_body .= '<p>State: ' . $_POST['state'] . '</p>' . "\n" . '<br>' . "\n";}
-	if(isset($_POST['phone']) and $_POST['phone'] != ''){$message_body .= '<p>Phone Number: ' . $_POST['phone'] . '</p>' . "\n" . '<br>' . "\n";}	
-	if(isset($_POST['fax']) and $_POST['fax'] != ''){$message_body .= '<p>Fax Number: ' . $_POST['fax'] . '</p>' . "\n" . '<br>' . "\n";}
-	if(isset($_POST['message']) and $_POST['message'] != ''){$message_body .= '<p>Message: ' . $_POST['message'] . '</p>' . "\n";}	
-	if(isset($_POST['stripHTML']) and $_POST['stripHTML']=='true'){$message_body = strip_tags($message_body);$message_type='text';}
+	
+	// if(isset($_POST['name']) and $_POST['name'] != ''){$message_body .= '<p>Visitor: ' . $_POST['name'] . '</p>' . "\n" . '<br>' . "\n"; $subject.=$_POST['name'];}
+	// if(isset($_POST['email']) and $_POST['email'] != ''){$message_body .= '<p>Email Address: ' . $_POST['email'] . '</p>' . "\n" . '<br>' . "\n"; $user_email=$_POST['email'];}
+	// if(isset($_POST['state']) and $_POST['state'] != ''){$message_body .= '<p>State: ' . $_POST['state'] . '</p>' . "\n" . '<br>' . "\n";}
+	// if(isset($_POST['phone']) and $_POST['phone'] != ''){$message_body .= '<p>Phone Number: ' . $_POST['phone'] . '</p>' . "\n" . '<br>' . "\n";}	
+	// if(isset($_POST['fax']) and $_POST['fax'] != ''){$message_body .= '<p>Fax Number: ' . $_POST['fax'] . '</p>' . "\n" . '<br>' . "\n";}
+	// if(isset($_POST['message']) and $_POST['message'] != ''){$message_body .= '<p>Message: ' . $_POST['message'] . '</p>' . "\n";}	
+	// if(isset($_POST['stripHTML']) and $_POST['stripHTML']=='true'){$message_body = strip_tags($message_body);$message_type='text';}
 
 try{
 	include "libmail.php";
