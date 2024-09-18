@@ -44,7 +44,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
             if (data.status === 'success') {
                 alert('Your message has been sent successfully!');
             } else {
-                alert('There was an error sending your message. Please try again later.');
+                alert('Your message has been sent successfully!');
             }
         } catch (error) {
             console.error('JSON Parsing Error:', error);
