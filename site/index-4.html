@@ -106,33 +106,34 @@
                           <fieldset>
                             <label class="name form-div-1">
                                 <strong>Name*</strong>
-                              <input type="text" name="name" placeholder="" value="" data-constraints="@Required @JustLetters"  />
+                              <input type="text" name="name" id="name" placeholder="" value="" data-constraints="@Required @JustLetters"  />
                               <span class="empty-message">*This field is required.</span>
                               <span class="error-message">*This is not a valid name.</span>
                             </label>
                             <label class="email form-div-2">
                                 <strong>E-mail*</strong>
-                              <input type="text" name="email" placeholder="" value="" data-constraints="@Required @Email" />
+                              <input type="text" name="email" id="email" placeholder="" value="" data-constraints="@Required @Email" />
                               <span class="empty-message">*This field is required.</span>
                               <span class="error-message">*This is not a valid email.</span>
                             </label>
                             <label class="phone form-div-3">
                                 <strong>Phone</strong>
-                              <input type="text" name="phone" placeholder="" value="" data-constraints="@JustNumbers" />
+                              <input type="text" name="phone" id="phone" placeholder="" value="" data-constraints="@JustNumbers" />
                               <span class="empty-message">*This field is required.</span>
                               <span class="error-message">*This is not a valid phone.</span>
                             </label>
                             <label class="message form-div-4">
                                 <strong>Message*</strong>
-                              <textarea name="message" placeholder="" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
+                              <textarea name="message" id="message" placeholder="" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
                               <span class="empty-message">*This field is required.</span>
                               <span class="error-message">*The message is too short.</span>
                             </label>
                             <!-- <label class="recaptcha"><span class="empty-message">*This field is required.</span></label> -->
                             <div class="btns">
-                                <a href="#" data-type="submit" class="btn-default btn1">Submit</a>
-                                <p>* required fields</p>
+                                <button type="button" id="submitBtn" data-type="submit" class="btn-default btn1">Submit</a>
+                                
                             </div>
+                            <p>* required fields</p>
                           </fieldset> 
                           <div class="modal fade response-message">
                             <div class="modal-dialog">
@@ -192,6 +193,7 @@
 </footer>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/tm-scripts.js"></script>
+<script src="js/formSubmit.js"></script>
 <!-- <script type="text/javascript"> 
 </script> -->
 </body>
