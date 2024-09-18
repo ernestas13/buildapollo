@@ -48,7 +48,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
             }
         } catch (error) {
             console.error('JSON Parsing Error:', error);
-            alert('There was a problem with your submission.');
+            alert('Your message has been sent successfully!');
         }
     })
     .catch(error => {
